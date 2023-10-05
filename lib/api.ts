@@ -58,7 +58,59 @@ export async function getAllPostsWithSlug() {
   `)
   return data?.posts
 }
+export async function getAllFAQ(preview) {
+  const data = await fetchAPI(
+    `
+    query AllFAQs {
+      fAQs(where: {orderby: {field: DATE, order: DESC}}) {
+        edges {
+          node {
+            title
+            content
+          }
+        }
+      }
+    }
+  `,
+    {
+      variables: {
+        onlyEnabled: !preview,
+        preview,
+      },
+    }
+  )
 
+  return data?.fAQs
+}
+
+export async function allDoctorsBasicInfo(preview) {
+  const data = await fetchAPI(
+    `
+    query allDoctorsBasicInfo {
+      doctors(where: {orderby: {field: DATE, order: DESC}}) {
+        edges {
+          node {
+            title
+            additionalInfo{
+              visitingFee
+              operationCost
+              address
+            }
+          }
+        }
+      }
+    }
+  `,
+    {
+      variables: {
+        onlyEnabled: !preview,
+        preview,
+      },
+    }
+  )
+
+  return data?.doctors
+}
 export async function getAllPostsForHome(preview) {
   const data = await fetchAPI(
     `
