@@ -96,6 +96,7 @@ export async function allDoctorsBasicInfo(preview) {
               operationCost
               address
             }
+            content
           }
         }
       }

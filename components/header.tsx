@@ -5,7 +5,9 @@ export default function Header() {
 		<header>
 			<nav className="text-center">
 				<div className="font-extrabold  ">
-					<Link href="/">LigamentCare</Link>
+					<Link className="underline" href="/">
+						LigamentCare
+					</Link>
 				</div>
 			</nav>
 		</header>

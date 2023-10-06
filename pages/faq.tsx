@@ -38,7 +38,7 @@ export default function Index({ allPosts: { edges }, preview }) {
 									dangerouslySetInnerHTML={{ __html: node.title }}
 								></summary>
 								<div
-									className="ml-4 mt-2 truncate text-sm leading-5 text-gray-500"
+									className="ml-4 mt-2 max-w-none prose text-gray-500"
 									dangerouslySetInnerHTML={{ __html: node.content }}
 								></div>
 							</details>
@@ -55,6 +55,6 @@ export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
 
 	return {
 		props: { allPosts, preview },
-		revalidate: 10,
+		revalidate: 3600,
 	};
 };

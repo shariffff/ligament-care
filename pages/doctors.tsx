@@ -5,7 +5,6 @@ import Container from '../components/container';
 import Layout from '../components/layout';
 import Header from '../components/header';
 import { allDoctorsBasicInfo } from '../lib/api';
-import { CMS_NAME } from '../lib/constants';
 import React from 'react';
 
 export default function Index({ allPosts: { edges }, preview }) {
@@ -32,14 +31,25 @@ export default function Index({ allPosts: { edges }, preview }) {
 								<div className=" underline underline-offset-4 text-blue-500 ">
 									{node.title}
 								</div>
-								<div className="text-sm underline-offset-0 text-sm text-gray-500 font-normal	">
-									{node.additionalInfo.address}
+								<div className="text-sm underline-offset-0 text-sm text-gray-500 font-normal">
+									🏥 {node.additionalInfo.address}
+								</div>
+								<div className="text-sm underline-offset-0 text-sm text-gray-500 font-normal">
+									{node.additionalInfo.operationCost &&
+										`➡️ ভিজিটিং ফি: ${node.additionalInfo.visitingFee}`}
+
+									<div>
+										{node.additionalInfo.operationCost &&
+											`➡️ অপারেশনের খরচ : ${node.additionalInfo.operationCost}`}
+									</div>
 								</div>
 							</summary>
 
-							<div className=" mt-2 truncate text-sm leading-5">
-								{node.additionalInfo.operationCost &&
-									`Operation Cost: ${node.additionalInfo.operationCost}`}
+							<div className=" mt-2">
+								<div
+									className="prose max-w-none border-t py-4"
+									dangerouslySetInnerHTML={{ __html: node.content }}
+								></div>
 							</div>
 						</details>
 					))}
@@ -54,6 +64,6 @@ export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
 
 	return {
 		props: { allPosts, preview },
-		revalidate: 10,
+		revalidate: 3600,
 	};
 };
