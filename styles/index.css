@@ -105,6 +105,6 @@
 summary {
 	cursor: pointer;
 }
-summary::marker {
+.doctors-list summary::marker {
 	content: '';
 }

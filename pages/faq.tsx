@@ -22,13 +22,13 @@ export default function Index({ allPosts: { edges }, preview }) {
 			</div>
 			<Header />
 			<Container>
-				<h3 className="font-bold text-4xl mb-12 mt-16 text-center">
+				<h3 className="font-bold text-2xl mb-12 mt-16 text-center">
 					সচরাচর জিজ্ঞাসিত প্রশ্ন
 				</h3>
 				<ol
 					role="list"
 					className="divide-y divide-gray-100 mx-auto"
-					style={{ maxWidth: 800, listStyleType: 'bengali' }}
+					style={{ maxWidth: 800 }}
 				>
 					{edges.map(({ node }) => (
 						<li>

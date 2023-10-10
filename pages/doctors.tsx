@@ -21,10 +21,10 @@ export default function Index({ allPosts: { edges }, preview }) {
 				<div className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"></div>
 			</div>
 			<Container>
-				<h3 className="font-bold text-4xl mb-12 mt-16 text-center">
+				<h3 className="font-bold text-2xl mb-12 mt-16 text-center">
 					ডাক্তারদের তালিকা
 				</h3>
-				<div className="mx-auto" style={{ maxWidth: 800 }}>
+				<div className="mx-auto doctors-list" style={{ maxWidth: 800 }}>
 					{edges.map(({ node }) => (
 						<details className="mx-auto my-10 bg-white rounded-lg shadow-md p-5">
 							<summary className=" text-xl font-semibold mt-3">
